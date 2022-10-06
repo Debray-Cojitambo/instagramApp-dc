@@ -1,0 +1,54 @@
+ion-tabs {
+
+    ion-tab-bar {
+        --border: 0;
+        ion-tab-button {
+            --background: var(--ion-color-darck);
+            --color: var(--ion-color-white);
+            --color-selected: var(--ion-color-white);
+            ion-icon {
+                font-size: 1.5rem;
+            }  
+            ion-label {
+                font-weight: bold;
+                margin-top: 20%;
+            }         
+        }
+    }
+    ion-fab {
+        ion-fab-button {
+            --background: linear-gradient(to bottom, #c1b835, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+            margin-bottom: 3vh;
+            border: 1vh solid var(--ion-color-white);
+            border-radius: 50%;
+        }
+    }
+    ion-fab.right-align {
+        margin-left: 13%;
+    }
+    ion-fab.left-align {
+        margin-left: -27%;
+    }
+    .animated {
+        animation: fadeIn 1.5s;
+        -webkit-animation: fadeIn 1.5s;
+        -moz-animation: fadeIn 1.5s;
+        -o-animation: fadeIn 1.5s;
+        -ms-animation: fadeIn 1.5s;
+        opacity: 1;
+    }
+    @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+}

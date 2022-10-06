@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title mode="md" color="dark">Instagram</ion-title>
+    <ion-button class="iconsStart" slot="start" fill="clear" id="open-modal">
+      <ion-button color="black white" expand="block">
+        <ion-icon slot="icon-only" name="camera-outline" color="dark light"></ion-icon>
+      </ion-button>
+    </ion-button>
+
+    <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Modal</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss(); guardarPost()">publicar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <ion-item>
+            <ion-label class="titulo">Avatar</ion-label>
+            <ion-buttons slot="end">
+              <ion-button>
+                <label for="archivo">
+                  <ion-icon name="add-circle-outline" slot="icon-only" style="color:rgb(8, 41, 255);"></ion-icon>
+                </label>
+                <input (change)="subirArchivo($event)" id="archivo" type="file" accept="image/*" style="display:none;">
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+          <img [src]="newImage" alt="" style="width:100%;">
+
+          <ion-item>
+            <ion-label class="normal" position="floating">Nombre:</ion-label>
+            <ion-input class="normal" [(ngModel)]="newPost.username" type="text" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="normal" position="floating">Ubicacion:</ion-label>
+            <ion-input class="normal" [(ngModel)]="newPost.location" type="text" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="normal" position="floating">Descripcion:</ion-label>
+            <ion-input class="normal" [(ngModel)]="newPost.description" type="text" inputmode="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label class="titulo">Foto</ion-label>
+            <ion-buttons slot="end">
+              <ion-button>
+                <label for="archivo">
+                  <ion-icon name="add-circle-outline" slot="icon-only" style="color:rgb(8, 41, 255);"></ion-icon>
+                </label>
+                <input (change)="subirArchivo($event)" id="archivo" type="file" accept="image/*" style="display:none;">
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+          <img [src]="newImage" alt="" style="width:100%;">
+
+
+          <ion-button style="margin:30px;" (click)=" guardarPost()">Siguiente</ion-button>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-buttons slot="end">
+      <ion-button class="iconsStart" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button class="iconsStart" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="paper-plane-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let post of posts">
+    <ion-card-header>
+      <ion-card-subtitulo>{{post.username}}
+        <img src="{{post.logo}}" alt="">
+      </ion-card-subtitulo>
+      <ion-card-title>{{post.location}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img src="{{post.image}}" alt="">
+      <ion-card-subtitle>{{post.description}}</ion-card-subtitle>
+    </ion-card-content>
+    <ion-item lines="none">
+      <ion-button class="iconsStart" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="heart-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button class="iconsStart" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="chatbubble-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button class="iconsStart" slot="start" fill="clear">
+        <ion-icon slot="icon-only" name="paper-plane-outline" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button class="iconsStart" slot="end" fill="clear">
+        <ion-icon slot="icon-only" name="bookmark-outline" color="dark"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+

@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light"> 
+    <ion-item>
+      <ion-label class="titulo">Reels</ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="archivo">
+            <ion-icon name="add-circle-outline" slot="icon-only" style="color:rgb(8, 41, 255);"></ion-icon>
+          </label>
+          <input (change)="subirArchivo($event)" id="archivo" type="file" accept="image/*" style="display:none;">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <img [src]="newImage" alt="" style="width:100%;">
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label class="normal" position="floating">Nombre:</ion-label>
+    <ion-input
+      class="normal"
+      [(ngModel)]="newEstado.nombre"
+      type="text"
+      inputmode="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="normal" position="floating">Descripcion:</ion-label>
+    <ion-input
+      class="normal"
+      [(ngModel)]="newEstado.descripcion"
+      type="text"
+      inputmode="text"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button style="margin:30px;"  (click)="guardarEstado()">Siguiente</ion-button>
+
+  <ion-item *ngFor="let estado of estados" class="normal">
+    <ion-list>
+      <ion-label>{{estado.nombre }}</ion-label>
+      <ion-label>{{estado.descripcion }}</ion-label>
+      <ion-label>{{estado.foto }}</ion-label>
+
+    </ion-list>
+  </ion-item>
+    
+
+</ion-content>
